@@ -1,213 +1,286 @@
-/* ===== RESET ===== */
+/* ===============================
+   BASE
+=============================== */
+:root {
+  --bg-color: #f7f9fb;
+  --text-color: #1a1a1a;
+  --accent-color: #1e90ff;
+  --accent-hover: #0070e0;
+  --light-gray: #e0e6ed;
+  --nav-bg: #ffffff;
+  --font-main: "Inter", sans-serif;
+  --font-heading: "DM Sans", sans-serif;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-/* ===== BASE ===== */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: "Libre Baskerville", serif;
-  background: #fafafa;
-  color: #222;
-  line-height: 1.8;
-  font-size: 17px;
+  font-family: var(--font-main);
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-.container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.section {
-  padding: 80px 0;
-}
-
-/* ===== NAV ===== */
+/* ===============================
+   HEADER & NAV
+=============================== */
 .nav-wrap {
-  background: #ffffff;
-  border-bottom: 1px solid #e6e6e6;
+  background: var(--nav-bg);
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 0;
+  padding: 1rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .brand {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 0.5px;
-  color: #1a1a1a;
+  font-size: 1.4rem;
+  color: var(--accent-color);
 }
 
 .nav-links {
-  display: flex;
   list-style: none;
+  display: flex;
   gap: 1.5rem;
 }
 
 .nav-links a {
-  color: #333;
   text-decoration: none;
-  font-family: "Inter", sans-serif;
-  transition: 0.3s;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #a70000;
+  color: var(--accent-color);
 }
 
-/* ===== HERO ===== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+/* ===============================
+   HERO
+=============================== */
 .hero {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 2rem;
 }
 
 .hero-text {
   flex: 1;
+  min-width: 300px;
 }
 
-.hero-photo {
-  flex: 1;
-  text-align: center;
+.hero-text h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
 }
 
-.profile-photo {
-  width: 80%;
-  max-width: 320px;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-  font-size: 2.4rem;
-  margin-bottom: 0.3rem;
-}
-
-.role {
-  font-size: 1.1rem;
-  color: #a70000;
+.hero-text .role {
+  font-size: 1.2rem;
+  font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.summary {
-  color: #444;
+.hero-text .summary {
+  max-width: 600px;
   margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
 }
 
 .btn {
-  background: #a70000;
+  background: var(--accent-color);
   color: #fff;
-  padding: 0.7rem 1.2rem;
-  border-radius: 4px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
   text-decoration: none;
-  font-family: "Inter", sans-serif;
-  font-weight: 500;
-  transition: 0.3s;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  background: #8e0000;
+  background: var(--accent-hover);
 }
 
 .btn.ghost {
   background: transparent;
-  color: #a70000;
-  border: 1px solid #a70000;
-  margin-left: 0.8rem;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
 }
 
 .btn.ghost:hover {
-  background: #a70000;
+  background: var(--accent-color);
   color: #fff;
 }
 
-/* ===== HEADINGS ===== */
-h2 {
-  font-family: "Inter", sans-serif;
-  color: #a70000;
-  margin-bottom: 1.2rem;
-  font-size: 1.6rem;
-  border-bottom: 2px solid #a70000;
-  display: inline-block;
-  padding-bottom: 0.2rem;
+.hero-photo {
+  flex: 1;
+  text-align: right;
 }
 
-/* ===== EXPERIENCE ===== */
+.profile-photo {
+  width: 260px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* ===============================
+   SECTION BASE
+=============================== */
+.section {
+  padding: 3rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+}
+
+/* ===============================
+   EXPERIENCE
+=============================== */
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
 .experience-item {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.experience-item:hover {
+  transform: translateY(-4px);
 }
 
 .company-logo {
   width: 60px;
   height: 60px;
-  object-fit: contain;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .exp-text h3 {
-  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .exp-text p {
-  color: #555;
+  font-size: 0.95rem;
 }
 
-/* ===== TIMELINE / SKILLS ===== */
-.timeline, .skills-grid {
-  margin-top: 1rem;
+/* ===============================
+   TIMELINE (Formazione)
+=============================== */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
+.timeline .item {
+  background: #fff;
+  padding: 1rem;
+  border-left: 4px solid var(--accent-color);
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+.timeline h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* ===============================
+   SKILLS
+=============================== */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
   list-style: none;
+  margin-bottom: 1.5rem;
 }
 
 .skills-grid li {
-  background: #f0f0f0;
-  padding: 0.6rem;
+  background: #fff;
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
   text-align: center;
-  border-radius: 3px;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  transition: background 0.3s;
+}
+
+.skills-grid li:hover {
+  background: var(--accent-color);
+  color: #fff;
 }
 
 .languages {
   list-style: none;
-  margin-top: 1rem;
 }
 
-/* ===== CONTACT ===== */
+.languages li {
+  margin-bottom: 0.4rem;
+}
+
+/* ===============================
+   CONTACT
+=============================== */
 .contacts {
   list-style: none;
-  margin-top: 1rem;
-  color: #333;
+  line-height: 1.8;
 }
 
 .contacts a {
-  color: #a70000;
+  color: var(--accent-color);
   text-decoration: none;
 }
 
@@ -215,23 +288,49 @@ h2 {
   text-decoration: underline;
 }
 
-/* ===== FOOTER ===== */
+/* ===============================
+   FOOTER
+=============================== */
 .footer-fixed {
-  background: #f7f7f7;
-  border-top: 1px solid #e6e6e6;
+  background: var(--nav-bg);
+  color: #555;
   text-align: center;
-  padding: 1rem;
-  color: #666;
+  padding: 1rem 0;
   font-size: 0.9rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
 }
 
-/* ===== REVEAL ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease;
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+/* ===============================
+   RESPONSIVE
+=============================== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: var(--nav-bg);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-photo {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .profile-photo {
+    width: 200px;
+  }
 }
